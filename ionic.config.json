@@ -1,5 +1,7 @@
 {
   "name": "ChezAwa",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

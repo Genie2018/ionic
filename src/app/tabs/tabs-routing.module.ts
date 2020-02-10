@@ -8,45 +8,55 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'plat',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../plat/plat.module').then(m => m.PlatPageModule)
+          },
+          {
+            path: 'ajouter',
+            loadChildren: () =>
+              import('../plat/ajouter/ajouter.module').then(m => m.AjouterPageModule)
+          },
+          {
+            path: 'modifier/:id',
+            loadChildren: () =>
+              import('../plat/modifier/modifier.module').then(m => m.ModifierPageModule)
+          },
+        ]
+      },
+      {
+        path: 'menu',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../menu/menu.module').then(m => m.MenuPageModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'compte',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-          }
-        ]
-      },
-      {
-        path: 'tab3',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../compte/compte.module').then(m => m.ComptePageModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/plat',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/plat',
     pathMatch: 'full'
   }
 ];
