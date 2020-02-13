@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>modifier</ion-title>
+    <ion-title>
+      Modifier
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <ion-list>
+    
+      <ion-item *ngIf="plat">
+    
+    <ion-label>{{plat.nom}}</ion-label>
+    <ion-label>{{plat.prix}}</ion-label>  
+    
+    </ion-item>
+  </ion-list>
 </ion-content>

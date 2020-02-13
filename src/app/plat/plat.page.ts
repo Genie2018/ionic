@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Plat } from '../Models/plat';
+import { PlatService } from '../services/plat.service';
 
 @Component({
   selector: 'app-plat',
@@ -8,32 +10,26 @@ import { Router } from '@angular/router';
 })
 export class PlatPage {
 
-    plats = [
-      {
-        id: 1,
-        nom: 'Tieb',
-        prix: 1200
-      },
-      {
-        id: 2,
-        nom: 'Mafe',
-        prix: 1200
-      },
-      {
-        id: 3,
-        nom: 'Yassa',
-        prix: 1200
-      },
-      {
-        id: 4,
-        nom: 'SOUPOU KANDJIA',
-        prix: 1200
-      }
+    plats = [];
       
-    ]
-  constructor(private router: Router) {}
-    ModifierPlat(id: number): void
-    {
+  constructor(private router: Router, private service: PlatService) {
+    this.service.getAll().subscribe(data =>{
+      this.plats = data;
+    },
+    error => {
+      console.log('Une erreure est survenue');
+    });
+  }
+    update(id: number): void
+    { console.log(id);
       this.router.navigate(['/tabs/plat/modifier',id]);
+    }
+    delete(id: number): void
+    { console.log(id);
+      this.service.delete(id).subscribe(data =>{
+        this.service.getAll().subscribe(data =>{
+          this.plats = data;
+        })       
+      });
     }
 }
