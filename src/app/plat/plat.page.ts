@@ -21,7 +21,7 @@ export class PlatPage {
     });
   }
     update(id: number): void
-    { console.log(id);
+    { 
       this.router.navigate(['/tabs/plat/modifier',id]);
     }
     delete(id: number): void

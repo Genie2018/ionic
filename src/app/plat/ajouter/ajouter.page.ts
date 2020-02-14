@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PlatService } from 'src/app/services/plat.service';
+import { Plat } from 'src/app/Models/plat';
 
 @Component({
   selector: 'app-ajouter',
@@ -7,7 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AjouterPage implements OnInit {
 
-  constructor() { }
+  plats = [];
+
+  constructor(private router: Router, private service: PlatService) 
+  {}
+  add(plat: Plat){
+    this.service.add(plat).subscribe(data =>{
+      this.service.getAll().subscribe(data =>{
+        this.plats = data;
+        this.router.navigateByUrl('/tabs/plat');
+      })       
+    });
+  }
 
   ngOnInit() {
   }

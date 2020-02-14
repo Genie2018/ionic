@@ -10,7 +10,7 @@ export class PlatService {
 
   constructor(private http: HttpClient) { }
  public add(plat: Plat):Observable<Plat>{
-   return this.http.post<Plat>('http://localhost:1337/plats/',plat).pipe(); 
+   return this.http.post<Plat>('http://localhost:1337/plats',plat).pipe(); 
   }
  public getAll():Observable<Plat[]>
   {
@@ -19,7 +19,7 @@ export class PlatService {
   }
   public update(plat: Plat):Observable<Plat>
   {
-    return this.http.put<Plat>('http://localhost:1337/plats/'+plat.id, plat).pipe();
+    return this.http.put<Plat>('http://localhost:1337/plats/' + plat.id, plat).pipe();
   };
   public get(id: number):Observable<Plat>
   {
