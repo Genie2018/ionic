@@ -11,3 +11,4 @@ login et mot de passe strapi -> login:admin mdp : admin95
 login et mot de passe pour acceder à l'application: username = admin et mot de passe=admin95
 Il y'a quelques images que j'ai mis sur le fichier application.txt illustrant l'application une fois qu'elle est lancée
  
+En cas de soucis regarder le fichier prensentation de l'application.odt ou appelez moi au 77 296 87 59
